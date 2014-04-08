@@ -17,6 +17,22 @@ class Campaign(base.Base):
         immutable = True
     )
 
+
+    @classmethod
+    def setup(cls):
+        super(Campaign, cls).setup()
+
+        oibiquini_1 = cls.find(name = "oibiquini_1")
+        if oibiquini_1: return
+
+        campaign = {
+            "enabled" : True,
+            "name" : "oibiquini_1",
+            "email" : "geral@oibiquini.com"
+        }
+        collection = cls._collection()
+        collection.save(campaign)
+
     @classmethod
     def validate(cls):
         return super(Campaign, cls).validate() + [
