@@ -20,12 +20,13 @@ class CampaignController(appier.Controller):
     @appier.route("/campaigns/<name>/subscriptions.json", "GET", json = True)
     def subscriptions_json(self, name):
         object = appier.get_object(alias = True, find = True)
-        subscriptions = campaigner.Subscription.find(name = name, map = True, **object)
+        subscriptions = campaigner.Subscription.find(campaign = name, map = True, **object)
         return subscriptions
 
     @appier.route("/campaigns/<name>/subscriptions", "POST", json = True)
     def create_subscription(self, name):
         subscription = campaigner.Subscription.new()
+        subscription.campaign = name
         try: subscription.save()
         except appier.ValidationError, error:
             print error
