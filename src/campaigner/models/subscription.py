@@ -33,8 +33,8 @@ class Subscription(base.Base):
             appier.string_gt("name", 3),
             appier.string_lt("name", 20),
 
-            appier.not_null("name"),
-            appier.not_empty("name"),
+            appier.not_null("email"),
+            appier.not_empty("email"),
             appier.is_email("email"),
             appier.not_duplicate("email", cls._name()),
         ]
