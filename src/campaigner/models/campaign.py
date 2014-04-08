@@ -17,6 +17,9 @@ class Campaign(base.Base):
         immutable = True
     )
 
+    redirect_url = dict(
+        index = True
+    )
 
     @classmethod
     def setup(cls):
@@ -28,7 +31,8 @@ class Campaign(base.Base):
         campaign = {
             "enabled" : True,
             "name" : "oibiquini_1",
-            "email" : "geral@oibiquini.com"
+            "email" : "geral@oibiquini.com",
+            "redirect_url" : "http://passatempo.oibiquini.com"
         }
         collection = cls._collection()
         collection.save(campaign)

@@ -25,10 +25,12 @@ class CampaignController(appier.Controller):
 
     @appier.route("/campaigns/<name>/subscriptions", "POST", json = True)
     def create_subscription(self, name):
+        campaign = campaigner.Campaign.get(name = name)
+        redirect_url = campaign.redirect_url if campaign else None
         subscription = campaigner.Subscription.new()
         subscription.campaign = name
         try: subscription.save()
-        except appier.ValidationError, error:
-            print error
-            return self.redirect("http://www.google.com")
-        return self.redirect("http://www.sapo.pt")
+        except appier.ValidationError:
+            if not redirect_url: raise
+            return self.redirect(redirect_url, result = "error")
+        return self.redirect(redirect_url, result = "success")
