@@ -22,3 +22,11 @@ class CampaignController(appier.Controller):
         object = appier.get_object(alias = True, find = True)
         subscriptions = campaigner.Subscription.find(name = name, map = True, **object)
         return subscriptions
+
+    @appier.route("/campaigns/<name>/subscription", "POST", json = True)
+    def create_subscription(self, name):
+        subscription = campaigner.Subscription.new()
+        try: subscription.save()
+        except appier.ValidationError, error:
+            return self.redirect("http://www.google.com")
+        return self.redirect("http://www.sapo.pt")

@@ -13,12 +13,3 @@ class BaseController(appier.Controller):
     @appier.route("/index", "GET")
     def index(self):
         return self.template("index.html.tpl")
-
-    @appier.route("/test", "GET")
-    def test(self):
-        return self.template("test.html.tpl")
-
-    @appier.route("/campaigns", "POST")
-    def campaigns(self):
-        object = self.get_object()
-        print object
