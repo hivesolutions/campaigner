@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import time
+
 import appier
 
 import base
@@ -14,6 +16,12 @@ class Subscription(base.Base):
     )
 
     email = dict(
+        index = True,
+        immutable = True
+    )
+
+    created = dict(
+        type = int,
         index = True,
         immutable = True
     )
@@ -38,3 +46,8 @@ class Subscription(base.Base):
             appier.is_email("email"),
             appier.not_duplicate("email", cls._name()),
         ]
+
+    def pre_create(self):
+        base.Base.pre_create(self)
+
+        self.created = time.time()

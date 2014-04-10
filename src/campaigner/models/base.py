@@ -19,6 +19,8 @@ class Base(appier.Model):
     description = dict()
 
     def pre_create(self):
+        appier.Model.pre_create(self)
+
         if not hasattr(self, "enabled"): self.enabled = True
 
     def get_e(self, *args, **kwargs):
