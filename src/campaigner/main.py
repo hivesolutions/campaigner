@@ -9,7 +9,7 @@ class CampaignerApp(appier.WebApp):
         appier.WebApp.__init__(
             self,
             name = "campaigner",
-            parts = (appier.CaptchaPart,)
+            parts = (appier.CaptchaPart, appier.AdminPart)
         )
 
 if __name__ == "__main__":
