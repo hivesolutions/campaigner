@@ -5,10 +5,9 @@ import time
 
 import appier
 
-import base
 import campaign
 
-class Subscription(base.Base):
+class Subscription(appier.admin.Base):
 
     name = dict(
         index = True,
@@ -48,6 +47,6 @@ class Subscription(base.Base):
         ]
 
     def pre_create(self):
-        base.Base.pre_create(self)
+        appier.admin.Base.pre_create(self)
 
         self.created = time.time()

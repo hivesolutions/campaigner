@@ -3,9 +3,7 @@
 
 import appier
 
-import base
-
-class Campaign(base.Base):
+class Campaign(appier.parts.admin.Base):
 
     name = dict(
         index = True,
