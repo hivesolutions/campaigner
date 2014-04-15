@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import appier
+import appier_extras
 
-class Campaign(appier.parts.admin.Base):
+class Campaign(appier_extras.admin.Base):
 
     name = dict(
         index = True,
