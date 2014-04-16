@@ -8,7 +8,8 @@ class Campaign(appier_extras.admin.Base):
 
     name = dict(
         index = True,
-        immutable = True
+        immutable = True,
+        default = True
     )
 
     email = dict(
