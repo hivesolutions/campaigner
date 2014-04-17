@@ -23,7 +23,8 @@ class Subscription(appier_extras.admin.Base):
     created = dict(
         type = int,
         index = True,
-        immutable = True
+        immutable = True,
+        meta = "datetime"
     )
 
     campaign = dict(
