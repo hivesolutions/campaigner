@@ -10,24 +10,24 @@ import campaign
 
 class Subscription(appier_extras.admin.Base):
 
-    name = dict(
+    name = appier.field(
         index = True,
         immutable = True
     )
 
-    email = dict(
+    email = appier.field(
         index = True,
         immutable = True
     )
 
-    created = dict(
+    created = appier.field(
         type = int,
         index = True,
         immutable = True,
         meta = "datetime"
     )
 
-    campaign = dict(
+    campaign = appier.field(
         type = appier.reference(
             campaign.Campaign,
             name = "name"

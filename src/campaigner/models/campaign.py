@@ -6,18 +6,18 @@ import appier_extras
 
 class Campaign(appier_extras.admin.Base):
 
-    name = dict(
+    name = appier.field(
         index = True,
         immutable = True,
         default = True
     )
 
-    email = dict(
+    email = appier.field(
         index = True,
         immutable = True
     )
 
-    redirect_url = dict(
+    redirect_url = appier.field(
         index = True
     )
 
