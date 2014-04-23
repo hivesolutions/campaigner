@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import base
-import campaign
+from . import base
+from . import campaign
 
-from base import *
-from campaign import *
+from .base import *
+from .campaign import *
