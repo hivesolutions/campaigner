@@ -6,7 +6,7 @@ import time
 import appier
 import appier_extras
 
-import campaign
+from campaigner.models import campaign
 
 class Subscription(appier_extras.admin.Base):
 
