@@ -1,8 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import time
-
 import appier
 import appier_extras
 
@@ -18,13 +16,6 @@ class Subscription(appier_extras.admin.Base):
     email = appier.field(
         index = True,
         immutable = True
-    )
-
-    created = appier.field(
-        type = int,
-        index = True,
-        immutable = True,
-        meta = "datetime"
     )
 
     campaign = appier.field(
@@ -47,8 +38,3 @@ class Subscription(appier_extras.admin.Base):
             appier.is_email("email"),
             appier.not_duplicate("email", cls._name()),
         ]
-
-    def pre_create(self):
-        appier_extras.admin.Base.pre_create(self)
-
-        self.created = time.time()
