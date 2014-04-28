@@ -30,8 +30,7 @@ class CampaignController(appier.Controller):
         subscription = campaigner.Subscription.new()
         subscription.campaign = name
         try: subscription.save()
-        except appier.ValidationError as error:
-            print error.errors
+        except appier.ValidationError:
             if not redirect_url: raise
             return self.redirect(redirect_url, result = "error")
         return self.redirect(redirect_url, result = "success")
