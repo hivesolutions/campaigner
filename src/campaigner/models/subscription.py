@@ -39,3 +39,14 @@ class Subscription(appier_extras.admin.Base):
 
             appier.not_null("campaign")
         ]
+
+    def pre_create(self):
+        appier_extras.admin.Base.pre_create(self)
+
+        subscriptions = Subscription.find(
+            email = self.email,
+            campaign = self.campaign
+        )
+        if subscriptions: raise appier.OperationalError(
+            message = "Invalid or duplicated subscription"
+        )
