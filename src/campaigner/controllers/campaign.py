@@ -7,7 +7,6 @@ import campaigner
 
 class CampaignController(appier.Controller):
 
-    @appier.controller("CampaignController")
     def __init__(self, owner, *args, **kwargs):
         appier.Controller.__init__(self, owner, *args, **kwargs)
 
