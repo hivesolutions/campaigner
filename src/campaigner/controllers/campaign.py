@@ -34,7 +34,6 @@ class CampaignController(appier.Controller):
         return result
 
     @appier.route("/campaigns/<name>/subscriptions", "POST", json = True)
-    @appier.ensure(token = "admin")
     def create_subscription(self, name):
         campaign = campaigner.Campaign.get(name = name)
         redirect_url = campaign.redirect_url if campaign else None
