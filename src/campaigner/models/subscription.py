@@ -15,7 +15,8 @@ class Subscription(appier_extras.admin.Base):
 
     email = appier.field(
         index = True,
-        immutable = True
+        immutable = True,
+        meta = "email"
     )
 
     campaign = appier.field(
