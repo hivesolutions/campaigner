@@ -31,3 +31,7 @@ class Campaign(appier_extras.admin.Base):
 
             appier.is_email("email")
         ]
+
+    @classmethod
+    def list_names(cls):
+        return ["name", "email", "redirect_url"]
