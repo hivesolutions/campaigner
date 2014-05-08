@@ -14,11 +14,13 @@ class Campaign(appier_extras.admin.Base):
 
     email = appier.field(
         index = True,
-        immutable = True
+        immutable = True,
+        meta = "email"
     )
 
     redirect_url = appier.field(
-        index = True
+        index = True,
+        meta = "url"
     )
 
     @classmethod

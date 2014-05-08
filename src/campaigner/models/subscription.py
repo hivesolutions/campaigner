@@ -22,7 +22,8 @@ class Subscription(appier_extras.admin.Base):
         type = appier.reference(
             campaign.Campaign,
             name = "name"
-        )
+        ),
+        immutable = True
     )
 
     @classmethod
