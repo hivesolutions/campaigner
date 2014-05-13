@@ -7,9 +7,6 @@ import campaigner
 
 class CampaignController(appier.Controller):
 
-    def __init__(self, owner, *args, **kwargs):
-        appier.Controller.__init__(self, owner, *args, **kwargs)
-
     @appier.route("/campaigns.json", "GET", json = True)
     @appier.ensure(token = "admin")
     def list_json(self):
