@@ -4,7 +4,7 @@
 import appier
 import appier_extras
 
-from campaigner.models import campaign
+from . import campaign
 
 class Subscription(appier_extras.admin.Base):
 
