@@ -4,5 +4,5 @@
 from . import base
 from . import campaign
 
-from .base import *
-from .campaign import *
+from .base import BaseController
+from .campaign import CampaignController

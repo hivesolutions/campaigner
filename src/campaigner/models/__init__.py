@@ -4,5 +4,5 @@
 from . import campaign
 from . import subscription
 
-from .campaign import *
-from .subscription import *
+from .campaign import Campaign
+from .subscription import Subscription
