@@ -30,6 +30,7 @@ class Campaign(appier_extras.admin.Base):
             appier.not_empty("name"),
             appier.string_gt("name", 3),
             appier.string_lt("name", 20),
+            appier.not_duplicate("name", cls._name()),
 
             appier.is_email("email")
         ]
