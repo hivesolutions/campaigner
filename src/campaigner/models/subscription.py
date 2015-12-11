@@ -42,6 +42,10 @@ class Subscription(appier_extras.admin.Base):
             appier.not_null("campaign")
         ]
 
+    @classmethod
+    def list_names(cls):
+        return ["id", "name", "email", "campaign"]
+
     def pre_create(self):
         appier_extras.admin.Base.pre_create(self)
 

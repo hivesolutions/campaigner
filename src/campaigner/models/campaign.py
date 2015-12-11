@@ -36,4 +36,4 @@ class Campaign(appier_extras.admin.Base):
 
     @classmethod
     def list_names(cls):
-        return ["name", "email", "redirect_url"]
+        return ["id", "name", "email", "redirect_url"]
