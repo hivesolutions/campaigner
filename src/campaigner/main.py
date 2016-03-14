@@ -6,14 +6,15 @@ import appier_extras
 
 class CampaignerApp(appier.WebApp):
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         appier.WebApp.__init__(
             self,
             name = "campaigner",
             parts = (
                 appier_extras.CaptchaPart,
                 appier_extras.AdminPart
-            )
+            ),
+            *args, **kwargs
         )
 
 if __name__ == "__main__":
