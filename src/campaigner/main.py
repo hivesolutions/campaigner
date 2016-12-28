@@ -20,3 +20,5 @@ class CampaignerApp(appier.WebApp):
 if __name__ == "__main__":
     app = CampaignerApp()
     app.serve()
+else:
+    __path__ = []
