@@ -14,14 +14,14 @@ class CampaignController(appier.Controller):
         campaigns = campaigner.Campaign.find(map = True, **object)
         return campaigns
 
-    @appier.route("/campaigns/<name>/subscriptions.json", "GET", json = True)
+    @appier.route("/campaigns/<str:name>/subscriptions.json", "GET", json = True)
     @appier.ensure(token = "admin")
     def subscriptions_json(self, name):
         object = appier.get_object(alias = True, find = True)
         subscriptions = campaigner.Subscription.find(campaign = name, map = True, **object)
         return subscriptions
 
-    @appier.route("/campaigns/<name>/subscriptions.csv", "GET")
+    @appier.route("/campaigns/<str:name>/subscriptions.csv", "GET")
     @appier.ensure(token = "admin")
     def subscriptions_csv(self, name):
         object = appier.get_object(alias = True, find = True)
@@ -30,7 +30,7 @@ class CampaignController(appier.Controller):
         self.content_type("text/csv")
         return result
 
-    @appier.route("/campaigns/<name>/subscriptions", "POST", json = True)
+    @appier.route("/campaigns/<str:name>/subscriptions", "POST", json = True)
     def create_subscription(self, name):
         campaign = campaigner.Campaign.get(name = name)
         redirect_url = campaign.redirect_url if campaign else None
